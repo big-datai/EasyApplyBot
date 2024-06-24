@@ -1,4 +1,5 @@
 import time, random, csv, pyautogui, pdb, traceback, sys
+from venv import logger
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.common.keys import Keys
@@ -6,6 +7,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from datetime import date, datetime
 from itertools import product
+import openai
+from dotenv import load_dotenv
+import logging
+from venv import logger
+
+
+# Set log level to INFO
+logger.setLevel(logging.ERROR)
 
 class LinkedinEasyApply:
     def __init__(self, parameters, driver):
@@ -38,6 +47,25 @@ class LinkedinEasyApply:
         self.personal_info = parameters.get('personalInfo', [])
         self.eeo = parameters.get('eeo', [])
         self.experience_default = int(self.experience['default'])
+    
+
+    def handle_unknown_scenario(question):
+        try:
+            os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+            print("OpenAI API Key:", os.getenv('OPENAI_API_KEY'))   
+            # openai.api_key = os.getenv('OPENAI_API_KEY')
+
+            response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=f"I encountered an unexpected scenario: {question}. Please provide instructions on how to proceed:",
+            max_tokens=50  # Adjust max_tokens as per your requirement
+            )
+
+            return response.choices[0].text.strip()
+
+        except Exception as e:
+            print(f"Failed to get response from ChatGPT: {e}")
+            return "I'm sorry, I couldn't get instructions. Please try again later."
 
     def login(self):
         try:
@@ -151,11 +179,13 @@ class LinkedinEasyApply:
             try:
                 job_title = job_tile.find_element(By.CLASS_NAME, 'job-card-list__title').text
                 link = job_tile.find_element(By.CLASS_NAME, 'job-card-list__title').get_attribute('href').split('?')[0]
-            except:
+            except Exception as e:
+                logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')  
                 pass
             try:
                 company = job_tile.find_element(By.CLASS_NAME, 'job-card-container__primary-description').text
-            except:
+            except Exception as e:
+                logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')  
                 pass
             try:
                 # get the name of the person who posted for the position, if any is listed
@@ -164,15 +194,18 @@ class LinkedinEasyApply:
                 name_terminating_index = hiring_line_text.find(' is hiring for this')
                 if name_terminating_index != -1:
                     poster = hiring_line_text[:name_terminating_index]
-            except:
+            except Exception as e:
+                logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')  
                 pass
             try:
                 job_location = job_tile.find_element(By.CLASS_NAME, 'job-card-container__metadata-item').text
-            except:
+            except Exception as e:
+                logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')  
                 pass
             try:
                 apply_method = job_tile.find_element(By.CLASS_NAME, 'job-card-container__apply-method').text
-            except:
+            except Exception as e:
+                logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')  
                 pass
 
             contains_blacklisted_keywords = False
@@ -195,7 +228,8 @@ class LinkedinEasyApply:
                             job_el.click()
                             break
 
-                        except StaleElementReferenceException:
+                        except StaleElementReferenceException as e:
+                            logger.error(f'we got an exception while parsing calls{By.CLASS_NAME} and exception {e}')             
                             retries += 1
                             continue
 
@@ -213,9 +247,9 @@ class LinkedinEasyApply:
                         print("Failed to apply to job. Please submit a bug report with this link: " + link)
                         try:
                             self.write_to_file(company, job_title, link, job_location, location)
-                        except:
-                            pass
-                        self.file_name = temp
+                        except Exception as e:
+                            logger.error(f'we got an exception while parsing and exception {e}')  
+                            self.file_name = temp
 
                     try:
                         self.write_to_file(company, job_title, link, job_location, location)
@@ -410,6 +444,8 @@ class LinkedinEasyApply:
 
                     elif 'currently living' in radio_text or 'currently reside' in radio_text or 'right to live' in radio_text:
                         answer = self.get_answer('residency')
+                    elif 'Do you currently reside in the United States' in radio_text or 'currently reside' in radio_text or 'right to live' in radio_text:
+                        answer = self.get_answer('residency')
 
                     elif 'level of education' in radio_text:
                         for degree in self.checkboxes['degreeCompleted']:
@@ -427,7 +463,7 @@ class LinkedinEasyApply:
                         answer = 'no'
 
                     elif 'sponsor' in radio_text:
-                        answer = self.get_answer('requireVisa')
+                        answer = 'no'
                     else:
                         answer = radio_options[len(radio_options) - 1]
                         self.record_unprepared_question("radio", radio_text)
@@ -556,7 +592,7 @@ class LinkedinEasyApply:
 
                     select = Select(dropdown_field)
                     options = [options.text for options in select.options]
-
+                    print(f'printing the options in the form {options}')
                     if 'proficiency' in question_text:
                         proficiency = "None"
                         for language in self.languages:
@@ -567,7 +603,7 @@ class LinkedinEasyApply:
 
                     elif 'clearance' in question_text:
                         answer = self.get_answer('securityClearance')
-
+                        
                         choice = ""
                         for option in options:
                             if answer == 'yes':
@@ -628,7 +664,7 @@ class LinkedinEasyApply:
                         self.select_dropdown(dropdown_field, choice)
 
                     elif 'sponsor' in question_text:
-                        answer = self.get_answer('requireVisa')
+                        answer = 'no' #self.get_answer('requireVisa')
                         choice = ""
                         for option in options:
                             if answer == 'yes':
@@ -676,7 +712,7 @@ class LinkedinEasyApply:
                                     choice = option
                         if choice == "":
                             choice = options[len(options) - 1]
-                        self.select_dropdown(dropdown_field, choice)
+                        self.select_dropdown(dropdown_field, 'No')
 
                     elif 'clearance' in question_text:
                         answer = self.get_answer('clearance')
@@ -779,6 +815,7 @@ class LinkedinEasyApply:
             pass
 
     def enter_text(self, element, text):
+        print()
         element.clear()
         element.send_keys(text)
 
@@ -833,11 +870,13 @@ class LinkedinEasyApply:
                         try:
                             self.additional_questions()
                         except:
+                            logger.error(f'we got an exception while parsing calls{By.TAG_NAME} and exception {e}')  
                             pass
 
                         try:
                             self.send_resume()
                         except:
+                            logger.error(f'we got an exception while parsing calls{By.TAG_NAME} and exception {e}')  
                             pass
 
                         if 'home address' in label:
@@ -845,8 +884,11 @@ class LinkedinEasyApply:
                         elif 'contact info' in label:
                             self.contact_info()
                     except:
-                        pass
-        except:
+                            logger.error(f'we got an exception while parsing  and exception {e}')  
+                            pass
+        except Exception as e:
+            logger.error(f'we got an exception while parsing  and exception {e}')
+            time.sleep(30)  
             pass
 
     def write_to_file(self, company, job_title, link, location, search_location):

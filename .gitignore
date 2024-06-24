@@ -3,3 +3,13 @@ outputRemote.csv
 unprepared_questions.csv
 .idea/
 **/__pycache__/
+source/config.yaml
+Indeed-Bot/info.py
+*.env
+*.log
+*.csv
+*.html
+*.docx
+*.DS_Store
+linkedin/
+.yaml

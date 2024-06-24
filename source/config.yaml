@@ -1,13 +1,16 @@
 # Add your LinkedIn email ID and password. WARNING: KEEP THIS OFFLINE ON YOUR PC AND DO NOT COMMIT/UPLOAD.
-email: email@domain.com
-password: yourpassword
+# email: davepavlov7@gmail.com
+# password: 8gj486Yh
+
+email: bgdatamlai@gmail.com
+password: fudjoj-kisfEv-pajmu1
 
 # Anti-lock default is False to prevent your PC from sleeping to allow bot to run uninterrupted.
 # Set it to True if you wish to disable this functionality.
 disableAntiLock: False
 
 # Set to True if you wish to search for remote jobs only.
-remote: False
+remote: True
 
 # Set to True if you wish to search for jobs marked as "under 10 applicants" (default is False).
 lessthanTenApplicants: False
@@ -15,11 +18,11 @@ lessthanTenApplicants: False
 # Set to True or False to suit your preference. Multiple True allowed.
 experienceLevel:
  internship: False
- entry: True
- associate: True
+ entry: False
+ associate: False
  mid-senior level: True
- director: False
- executive: False
+ director: True
+ executive: True
 
 # Set to True or False to suit your preference. Multiple True allowed.
 jobTypes:
@@ -40,31 +43,36 @@ date:
 
 # Remove hash sign to add positions. You can add as many as you need, but preserve formatting
 positions:
- #- First position
- #- A second position
- #- A third position
- #- ...
+#  - 'Managing Director LLM GenAI'
+#  - 'Data science director LLM GenAI'
+#  - 'CTO LLM GenAI'
+ - 'DevOps'
+ - 'Data Engineer'
+ #- 'Data Scientiest'
+
+
 
 # Remove hash sign to add locations. You can add as many as you need including adding 'Remote' as a location but first location must be a valid country.
 locations:
- #- First location
- #- A second location
+ - 'New York'
+ - 'Delawer'
+ - 'Remote'
  #- A third location
  #- ...
  #- Remote
 
 # Set to True if you are residing in the country of job
-residentStatus: False
+residentStatus: True
 
 # Distance from the location added above. Allowed values are {0, 5, 10, 25, 50, 100}, use only one.
 distance: 100
 
 # Optional directory to save logs, does not work sometimes. Does not work sometimes, so leave it unchanged.
-outputFileDirectory: ~/Documents/Applications/EasyApplyBot/EasyApplyBot/
+outputFileDirectory: ~/Users/admin1/EasyApplyBot/logs
 
 # Companies you don't want to apply.
 companyBlacklist:
- #- company
+ - JPMorgan Chase 
  #- company2
 
 # Job titles you want to avoid applying. Use it to refine performance of bot.
@@ -81,7 +89,7 @@ posterBlacklist:
 # so apply one job manually once, bot will reuse manually uploaded CV for automating the task.
 # Note: Prefer a path without spaces, i.e. instead of "Me My" to "MeMy" or "Me_My".
 uploads:
- resume: C:\Users\myDirectory\Resume.pdf
+ resume: /Users/admin1/EasyApplyBot/DavePavlovDistinguishedEngineerAIMLv1.docx
  # Cover letter is optional
  #coverLetter: C:\Users\myDirectory\CoverLettter.pdf
 
@@ -96,7 +104,7 @@ checkboxes:
  # This is relative to the location and your citizenship applying above, and same with legallyAuthorized.
  requireVisa: False
  # Are you legally authorized to work in COUNTRY? (yes/no checkbox)
- legallyAuthorized: False
+ legallyAuthorized: True
  # Do you have necessary licenses or certifications required in your profession? E.g. CPA, CA, CFA, professional license
  certifiedProfessional: True
  # We must fill this position urgently. Can you start immediately? (yes/no checkbox)
@@ -128,13 +136,13 @@ checkboxes:
 universityGpa: 4.0
 
 # ------------ Additional parameters: salaryMinimum ---------------
-salaryMinimum: 65000
+salaryMinimum: 400000
 
 # ------------ Additional parameters: languages ---------------
 languages:
- english: Native or bilingual # Allowed choices { None, Conversational, Professional, Native or bilingual }
- # arabic: Conversational
- # french: Professional
+  english: Native or bilingual # Allowed choices { None, Conversational, Professional, Native or bilingual }
+
+ 
 
 # ------------ Additional parameters: noticePeriod in weeks ---------------
 noticePeriod: 2
@@ -144,87 +152,92 @@ noticePeriod: 2
 # You may add more skills depending on your industry or profession at the bottom.
 experience:
  # normal ones
- Accounting/Auditing: 0
- Administrative : 0
- Advertising : 0
- Analyst : 0
- Art/Creative: 0
- Business Development: 0
- Consulting: 0
- Customer Service: 0
- Distribution Design: 0
- Education: 0
- Engineering: 0
- Finance: 0
- General Business: 0
- Health Care Provider: 0
- Human Resources: 0
- Information Technology: 0
- Legal: 0
- Management: 0
- Manufacturing: 0
- Marketing: 0
- Public Relations: 0
- Purchasing: 0
- Product Management: 0
- Project Management: 0
- Production: 0
- Quality Assurance: 0
- Research: 0
- Sales: 0
- Science: 0
- Strategy/Planning: 0
- Supply Chain: 0
- Training: 0
- Writing/Editing: 0
- VBA: 0
- PowerBI: 0
- PowerQuery: 0
- Excel: 0
- PowerPoint: 0
- Word: 0
- SQL Server: 0
- Communication: 0
- Financial markets: 0
- Business: 0
- Financial services: 0
- Team leadership: 0
- Cash flow: 0
- Hedging: 0
- Treasury services: 0
- Microsoft Power BI: 0
- Accounting: 0
- Auditing: 0
- Financial modeling: 0
- Budgeting & forecasting: 0
- FP&A: 0
- PQE: 0
- Training & Development: 0
- #python: 0
- #selenium: 0
+ Accounting/Auditing: 10
+ Administrative : 10
+ Advertising : 10
+ Analyst : 10
+ Art/Creative: 10
+ Business Development: 10
+ Consulting: 10
+ Customer Service: 10
+ Distribution Design: 10
+ Education: 10
+ Engineering: 20
+ Finance: 10
+ General Business: 10
+ Health Care Provider: 10
+ Human Resources: 10
+ Information Technology: 20
+ Legal: 10
+ Management: 10
+ Manufacturing: 10
+ Marketing: 10
+ Public Relations: 10
+ Purchasing: 10
+ Product Management: 10
+ Project Management: 10
+ Production: 10
+ Quality Assurance: 10
+ Research: 10
+ Sales: 10
+ Science: 10
+ Strategy/Planning: 10
+ Supply Chain: 10
+ Training: 10
+ Writing/Editing: 10
+ VBA: 10
+ PowerBI: 10
+ PowerQuery: 10
+ Excel: 10
+ PowerPoint: 10
+ Word: 10
+ SQL Server: 10
+ Communication: 10
+ Financial markets: 10
+ Business: 10
+ Financial services: 10
+ Team leadership: 10
+ Cash flow: 10
+ Hedging: 10
+ Treasury services: 10
+ Microsoft Power BI: 10
+ Accounting: 10
+ Auditing: 10
+ Financial modeling: 10
+ Budgeting & forecasting: 10
+ FP&A: 10
+ PQE: 10
+ Training & Development: 10
+ #python: 10
+ #selenium: 10
  # default to put for any industry/skill that you did not list
- default: 0
-
+ default: 10
+ How many startups where you were in a lead role have achieved a successful exit: 5
+ how many years of work experience do you have with software as a service (saas): 15
+ how many years of work experience do you have with professional skills: 20
+ do you have established business relationships with c-level executives, decision-makers, or business owners: yes
+Do you currently reside in the United States?Do you currently reside in the United States: yes
 # ------------ Additional parameters: personal info ---------------
 personalInfo:
  Pronouns: Mr.
- First Name: FirstName
- Last Name: LastName
- Phone Country Code: Canada (+1) # See Linkedin for your country code, must be exact according to the international platform, i.e. Italy (+39) not Italia (+39)
- Mobile Phone Number: 1234567890
- Street address: 123 Fake Street
- City: Red Deer, Alberta # Include the state/province as well!
- State: YourState
- Zip: YourZip/Postal
- Linkedin: https://www.linkedin.com/in/my-linkedin-profile
+ First Name: David
+ Last Name: Pavlov
+ Phone Country Code: United States (+1) # See Linkedin for your country code, must be exact according to the international platform, i.e. Italy (+39) not Italia (+39)
+ Mobile Phone Number: 8584619294
+ Street address: 485 Market
+ City: Merion Station, Pennsylvania # Include the state/province as well!
+ State: PA
+ Zip: 19066
+ Linkedin: https://www.linkedin.com/in/davepavlov
  Website: https://www.my-website.com # github/website is interchangeable here
  MessageToManager: "Hi, I am interested to join your organization. Please have a look at my resume. Thank you." # Keep message short and within the quotes. This is a testing feature and may not work.
-
+ 
 # ------------ Additional parameters: USA employment crap ---------------
 eeo:
- gender: None
- race: None
+ gender: Male
+ race: White
  veteran: None
  disability: None
- citizenship: yes
+ citizenship: no
  clearance: no
+
