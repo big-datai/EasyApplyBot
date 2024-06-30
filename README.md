@@ -1,53 +1,97 @@
-# LinkedIn Easy Apply Bot
+# Easy Apply Bots
 
-_Automate your LinkedIn job applications with ease!_
+This repository contains two automated bots to help you apply for jobs on Indeed and LinkedIn. The Indeed Easy Apply bot and the LinkedIn Easy Apply bot will navigate through job postings and apply to them automatically using the credentials and settings provided.
 
-This Python and Selenium-based bot automates applying to jobs using the Easy Apply feature on LinkedIn.
+## Features
 
-## Key Features
+- Automated job application on Indeed and LinkedIn
+- Utilizes Selenium for web scraping and automation
+- Configurable using environment variables and a YAML configuration file
+- Supports automatic form filling using OpenAI GPT-3
 
-- Apply to thousands of jobs effortlessly.
-- Track application dates and times for performance analysis.
+## Prerequisites
 
-## Important
+- Python 3.12 or later
+- Chrome browser installed
+- LinkedIn and Indeed accounts
 
-- Use at your own risk. LinkedIn may restrict or suspend accounts for bot usage.
-- Consider this an educational project.
+## Installation
 
-## Getting Started
+1. Clone the repository:
 
-1. Modify the `config.py` file locally to include your LinkedIn credentials, personal information, and job preferences.
+    ```sh
+    git clone git@github.com:big-datai/EasyApplyBot.git
+    cd EasyApplyBot
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-2. Install python3 and pip3 on your system. Then, install the required dependencies using the following commands: (Unix commands)
-```bash
-sudo apt-get install python3
-python3 -m pip install webdriver-manager --upgrade
-python3 -m pip install packaging
-```
+2. Install the required packages:
 
-3. Run the bot with python
-```bash
-python3 main.py
-```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-Optionally, watch this video tutorial by [voidbydefault](https://github.com/voidbydefault) during his time maintaining the project, on [YouTube](https://youtu.be/IXflenwJzhQ).
+3. Create a `.env` file in the root directory of the project and add your environment variables:
 
-## Additional Resources
+    ```
+    OPENAI_API_KEY=your_openai_api_key
+    USERNAME=your_indeed_username
+    PASSWORD=your_indeed_password
+    ```
 
-- Optional BI dashboard setup: Watch this [YouTube](https://youtu.be/4LH8WTrMCxw) video.
-- **Troubleshooting:** Encounter errors? Ensure dependencies are installed.
-- **Issues** Raise issues page at my GitHub.
+4. For the LinkedIn bot, create a `config.yaml` file in the root directory with the following structure:
 
-## Support This Project
+    ```yaml
+    email: your_linkedIn_email
+    password: your_linkedIn_password
+    positions: ["Software Engineer", "Data Scientist"]
+    locations: ["Remote", "New York, NY"]
+    uploads:
+      resume: "path_to_your_resume"
+    ```
 
-By supporting this project, you help maintain and improve the bot. Your support is greatly appreciated!
+## Usage
 
-See the sponsor button on the top right of the page or [click here](https://github.com/sponsors/madingess).
+### Indeed Easy Apply Bot
 
-Also, buy a coffee for [voidbydefault](https://github.com/voidbydefault) through [PayPal](https://paypal.me/voidbydefault) for his efforts maintaining and improving this bot!
+1. Start Chrome in debug mode and log in to your Google account in the browser. Authenticate both on LinkedIn and Indeed with your Google account:
 
-## Credits
+    ```sh
+    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="/path/to/your/chrome/profile"
+    ```
 
-- Maintenance and significant updates: [Micheal Dingess](https://github.com/madingess/)
-- Improvements and maintenance contributions: [voidbydefault](https://github.com/voidbydefault) with fork [voidbydefault/EasyApplyBot](https://github.com/voidbydefault/EasyApplyBot)
-- Original developer: [Nathan Duma](https://github.com/NathanDuma) with [NathanDuma/LinkedIn-Easy-Apply-Bot](https://github.com/NathanDuma/LinkedIn-Easy-Apply-Bot)
+2. Run the Indeed Easy Apply bot:
+
+    ```sh
+    python indeed_easy_apply.py
+    ```
+
+### LinkedIn Easy Apply Bot
+
+1. Run the LinkedIn Easy Apply bot:
+
+    ```sh
+    python linkedin_easy_apply.py
+    ```
+
+## Files
+
+- `indeed_easy_apply.py`: Main script for Indeed Easy Apply bot.
+- `linkedin_easy_apply.py`: Main script for LinkedIn Easy Apply bot.
+- `config.yaml`: Configuration file for LinkedIn Easy Apply bot.
+- `.env`: Environment variables for API keys and credentials.
+
+## Troubleshooting
+
+- Ensure Chrome is started in debug mode for the Indeed bot.
+- Check the logs for detailed error messages in `errors.log`.
+- Verify your `.env` and `config.yaml` files are correctly set up.
+
+## Contributing
+
+Contributions are welcome! Please create a pull request or open an issue for any improvements or bugs.
+
+## License
+
+This project is licensed under the MIT License.

@@ -1,0 +1,217 @@
+email: bgdatamlai@gmail.com
+password: fudjoj-kisfEv-pajmu1
+
+disableAntiLock: False
+remote: True
+lessthanTenApplicants: False
+
+experienceLevel:
+  internship: False
+  entry: False
+  associate: False
+  mid-senior level: True
+  director: True
+  executive: True
+
+jobTypes:
+  full-time: True
+  contract: True
+  part-time: False
+  temporary: True
+  internship: False
+  other: False
+  volunteer: False
+
+date:
+  all time: True
+  month: False
+  week: False
+  24 hours: False
+
+positions:
+- 'DevOps'
+# - 'Software Engineer'
+  # - 'Managing Director LLM GenAI'
+  # - 'Data science director LLM GenAI'
+  # - 'CTO LLM GenAI'
+  # - 'Data Engineer'
+  # - 'Data Scientist'
+
+locations:
+  - 'New York'
+  - 'Delaware'
+  - 'Remote'
+
+residentStatus: True
+
+distance: 100
+
+outputFileDirectory: ~/Users/admin1/EasyApplyBot/logs
+
+companyBlacklist:
+  - JPMorgan Chase 
+
+titleBlacklist:
+  # Add titles to avoid
+
+posterBlacklist:
+  # Add names to avoid
+
+uploads:
+  resume: /Users/admin1/EasyApplyBot/DavePavlovDistinguishedEngineerAIMLv1.docx
+  # coverLetter: C:/Users/myDirectory/CoverLettter.pdf
+
+checkboxes:
+  driversLicence: True
+  requireVisa: False
+  legallyAuthorized: True
+  certifiedProfessional: True
+  urgentFill: True
+  commute: True
+  remote: True
+  drugTest: True
+  assessment: True
+  securityClearance: False
+  degreeCompleted:
+    - High School Diploma
+    - Bachelor's Degree
+  backgroundCheck: True
+
+universityGpa: 4.0
+
+salaryMinimum: 400000
+
+languages:
+  english: Native or bilingual
+
+noticePeriod: 2
+
+experience:
+  Accounting/Auditing: 10
+  Administrative: 10
+  Advertising: 10
+  Analyst: 10
+  Art/Creative: 10
+  Business Development: 10
+  Consulting: 10
+  Customer Service: 10
+  Distribution Design: 10
+  Education: 10
+  Engineering: 20
+  Finance: 10
+  General Business: 10
+  Health Care Provider: 10
+  Human Resources: 10
+  Information Technology: 20
+  Legal: 10
+  Management: 10
+  Manufacturing: 10
+  Marketing: 10
+  Public Relations: 10
+  Purchasing: 10
+  Product Management: 10
+  Project Management: 10
+  Production: 10
+  Quality Assurance: 10
+  Research: 10
+  Sales: 10
+  Science: 10
+  Strategy/Planning: 10
+  Supply Chain: 10
+  Training: 10
+  Writing/Editing: 10
+  VBA: 10
+  PowerBI: 10
+  PowerQuery: 10
+  Excel: 10
+  PowerPoint: 10
+  Word: 10
+  SQL Server: 10
+  Communication: 10
+  Financial markets: 10
+  Business: 10
+  Financial services: 10
+  Team leadership: 10
+  Cash flow: 10
+  Hedging: 10
+  Treasury services: 10
+  Microsoft Power BI: 10
+  Accounting: 10
+  Auditing: 10
+  Financial modeling: 10
+  Budgeting & forecasting: 10
+  FP&A: 10
+  PQE: 10
+  Training & Development: 10
+  default: 10
+  How many startups where you were in a lead role have achieved a successful exit: 5
+  how many years of work experience do you have with software as a service (saas): 15
+  how many years of work experience do you have with professional skills: 20
+  do you have established business relationships with c-level executives, decision-makers, or business owners: yes
+  how many years of work experience do you have with hospitals and health care: 10
+  how many years of work experience do you have with food and beverage services: 10
+  how many years of work experience do you have with personalization: 10
+  how many years of experience as a data scientist in the ad-tech industry: 10
+  how many years of work experience do you have with sas (software): 10
+  how many years of work experience do you have with predictive modeling: 10
+  how many years of work experience do you have with statistical modeling: 10
+  how many years of work experience do you have with large language models (llm): 10
+  how much cash compensation do you require per year: 500
+
+personalInfo:
+  Pronouns: Mr.
+  First Name: David
+  Last Name: Pavlov
+  Phone Country Code: United States (+1)
+  Mobile Phone Number: 8584619294
+  Street address: 485 Market
+  City: Merion Station, Pennsylvania
+  State: PA
+  Zip: 19066
+  Linkedin: https://www.linkedin.com/in/davepavlov
+  Website: https://davepavlov.medium.com
+  MessageToManager: "Hi, I am interested to join your organization. Please have a look at my resume. Thank you."
+
+eeo:
+  gender: Male
+  race: White
+  veteran: None
+  disability: None
+  citizenship: no
+  clearance: no
+questions:
+  employment_history:
+    - pattern: "have you ever been employed by"
+      type: radio
+      default_answer: no
+  personal_relationship:
+    - pattern: "are you related to or involved in a close personal relationship"
+      type: radio
+      default_answer: no
+  age_requirement:
+    - pattern: "are you at least 18 years of age"
+      type: radio
+      default_answer: yes
+  professional_license:
+    - pattern: "are you a licensed psychiatrist"
+      type: radio
+      default_answer: no
+  veteran_status:
+    - pattern: "veteran status"
+      type: dropdown
+      options:
+        - Veteran
+        - Non-Veteran
+      default_answer: Non-Veteran
+  data_protection_notice:
+    - pattern: "data protection notice"
+      type: dropdown
+      default_answer: Agree
+  industry_experience:
+    - pattern: "do you have a thesis in this industry"
+      type: dropdown
+      default_answer: yes
+  financial_responsibility:
+    - pattern: "did you have full p&l responsibility experience"
+      type: dropdown
+      default_answer: no

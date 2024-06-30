@@ -1,0 +1,53 @@
+DIMA PAVLOV
+Phone: 858.461.9294
+Email: davepavlov7@gmail.com
+LinkedIn: https://www.linkedin.com/in/davepavlov/
+ 
+SUMMARY:
+•	Over 20 years of progressive experience in software development, specializing in DevOps, Java, Py-thon, Hadoop, and AWS.
+•	Proven track record of delivering business-oriented solutions and driving technological innovation across multiple industries.
+•	Skilled in building and optimizing CI/CD pipelines, managing large-scale data pipelines, and providing strategic leadership.
+ 
+EDUCATION:
+•	Technion - Israel Institute of Technology
+o	M.Sc. in Information Retrieval, 2010-2014
+o	Bachelors in Information Technology and Economics, 2004-2009, GPA 4.0
+ 
+SKILLS:
+•	AWS services (EC2, EMR, Glue, Athena, Kinesis)
+•	Python (data processing, scripting)
+•	SQL (relational databases, query optimization)
+•	Data Modeling and Design
+•	CI/CD Pipelines (Jenkins, AWS CodePipeline)
+•	Snowflake (data warehousing and analytics)
+•	Machine Learning fundamentals
+•	Agile Methodology (Scrum)
+•	Leadership and Mentorship
+•	Linux (Red Hat, CentOS), Windows, UNIX, and Mac.
+ 
+PROFESSIONAL EXPERIENCE:
+CITI GROUP, New York, NY
+SVP/Principal DevOps Engineer
+Sep 2019 - Present
+•	Led the transformation of CI/CD practices, implementing AWS CodePipeline to automate builds and deployments, reducing deployment times by 40%.
+•	Championed the development of a scalable data catalog on AWS Glue, improving data accessibility and governance across the organization.
+•	Mentored and coached a team of 20+ engineers, fostering a culture of continuous improvement and innovation in DevOps practices.
+BARCLAYS, New York, NY
+Director DevOps and Big Data Engineer
+June 2016 - May 2019
+•	Engineered a high-performance data ingestion system using AWS EMR and Kinesis, enabling re-al-time data processing for investment banking operations.
+•	Led initiatives to enhance data reliability and scalability, resulting in a 30% improvement in data processing efficiency.
+•	Collaborated with business stakeholders to architect solutions aligning with strategic business ob-jectives, ensuring data-driven decision-making capabilities.
+ 
+ADDITIONAL EXPERIENCE:
+DEEPRICER, San Francisco, CA
+Principal DevOps Engineer
+Jan 2015 - May 2016
+•	Developed a distributed web crawler leveraging Java and Kafka to gather real-time pricing data from 100M webpages bi-hourly, enhancing market competitiveness by 20%.
+•	Implemented data storage and processing optimizations using S3 and Cassandra, reducing storage costs by 30% and improving data retrieval speeds by 25%.
+PERION, New York, NY
+Senior Data Engineer
+Jan 2014 - Jan 2015
+•	Led the adoption of Spark within the data team, driving a 25% increase in team productivity through workshops and hands-on training sessions.
+•	Designed and optimized data models for improved query performance and scalability, supporting business growth initiatives and enhancing data-driven insights.
+
